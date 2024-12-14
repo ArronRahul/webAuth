@@ -1,0 +1,35 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    gap:20px;
+    background-color: #fc0f0f5c;
+    input{
+        width: 200px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s ease;
+    }
+    button{
+        width: 200px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+    input:hover{
+        background-color: #e0e0e0;
+    }
+    button:hover{
+        background-color: #e0e0e0;
+    }
+}
