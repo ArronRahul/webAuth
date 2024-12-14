@@ -1,16 +1,13 @@
 <main>
-    <p>Home Page</p>
-    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-        <button (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
-          Log out
-        </button>
-      </ng-container>
+    <h1>Home Page</h1>
+    <p>Welcome to the home page!</p>
   
-      <ng-template #loggedOut>
-        <button (click)="auth.loginWithRedirect()">Log in</button>
-      </ng-template>
-      <ul *ngIf="auth.user$ | async as user">
-        <li>{{ user.name }}</li>
-        <li>{{ user.email }}</li>
-      </ul>
-</main>
+    <div *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+      <p>You are logged in as {{ (auth.user$ | async)?.name }}</p>
+    </div>
+  
+    <ng-template #loggedOut>
+      <p>Please log in to access the content.</p>
+    </ng-template>
+  </main>
+  

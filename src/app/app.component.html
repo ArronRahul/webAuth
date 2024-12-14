@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<main>
+  <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+    <p>Welcome, {{ (auth.user$ | async)?.name }}</p>
+    <button (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">Log out</button>
+    <router-outlet></router-outlet> <!-- Router outlet to load home or other pages -->
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <button (click)="auth.loginWithRedirect()">Log in</button>
+  </ng-template>
+</main>
